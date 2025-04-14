@@ -2,65 +2,18 @@
 # Disease Spread Modeling with Compressive Sensing
 ## Maths for Big Data Project
 
-**Abstract**
-
-This project explores the application of compressive sensing techniques to the modeling and prediction of infectious disease spread, with a particular focus on COVID-19. Traditional epidemiological modeling often requires complete datasets, which can be challenging to obtain especially during the early stages of an outbreak. Compressive sensing offers a mathematical framework for recovering signals from incomplete measurements, making it particularly valuable in epidemic contexts where data may be sparse, noisy, or incomplete. This report examines the theoretical foundations of compressive sensing in the context of epidemiological modeling, explores implementations in real-world scenarios, and discusses the challenges and future directions of this approach within the big data paradigm.
-
-**Keywords:** Compressive sensing, disease modeling, epidemic prediction, sparse data recovery, big data analytics, mathematical epidemiology, COVID-19
-
----
-
-## Table of Contents
-
-1. Introduction
-2. Theoretical Foundations
-   - 2.1 Basics of Compressive Sensing
-   - 2.2 Mathematical Epidemiology Models
-   - 2.3 Integration of Compressive Sensing with Epidemiology
-3. Methodology
-   - 3.1 Data Collection and Preprocessing
-   - 3.2 Sparse Representation of Epidemic Data
-   - 3.3 Recovery Algorithms for Disease Spread Modeling
-   - 3.4 Validation Approaches
-4. Applications to COVID-19
-   - 4.1 Challenges in COVID-19 Data Collection
-   - 4.2 Network-Based Transmission Modeling
-   - 4.3 Spatio-Temporal Prediction Using Compressive Sensing
-   - 4.4 Case Studies
-5. Big Data Considerations
-   - 5.1 Scalability Challenges
-   - 5.2 Distributed Computing Approaches
-   - 5.3 Real-Time Processing of Epidemic Data
-   - 5.4 Integration with Other Big Data Technologies
-6. Results and Discussion
-   - 6.1 Performance Metrics
-   - 6.2 Comparison with Traditional Methods
-   - 6.3 Limitations and Constraints
-7. Future Directions
-   - 7.1 Advanced Recovery Algorithms
-   - 7.2 Multi-Modal Data Integration
-   - 7.3 Privacy-Preserving Disease Modeling
-8. Conclusion
-9. References
-
----
-
+### Team Members:
+- **Mamta Kumari** - B21CI025
+- **Samay Mehar** - B22AI048
+- **Saurav Soni** - B22AI035
+- **Dhruva Kumar Kaushal** - B22AI017
 ## 1. Introduction
 
-Infectious disease outbreaks represent significant public health challenges, and their effective management relies heavily on accurate modeling and prediction. The COVID-19 pandemic highlighted the critical importance of reliable epidemic forecasting to inform policy decisions and healthcare resource allocation. However, a persistent challenge in epidemic modeling is the availability of comprehensive data, particularly during the early stages of an outbreak when information is most crucial for intervention planning.
+Infectious disease outbreaks, such as COVID-19, pose a major challenge to public health management. Successful control depends on good forecasting, which can inform policy and direct healthcare resource allocation. Yet, in the initial stages of an outbreak, there is often limited comprehensive data because of problems such as testing constraints and reporting delays.
 
-Traditional epidemiological models, such as the SIR (Susceptible-Infected-Recovered) model and its variants, typically require complete datasets to produce accurate predictions. In reality, disease surveillance systems often provide incomplete, delayed, or biased data due to various constraints including testing capacity limitations, reporting delays, and heterogeneous surveillance systems across different regions. These data challenges align with the fundamental problem that compressive sensing aims to address: how to recover meaningful signals from incomplete measurements.
+Classical epidemic models, such as the SIR model, need to have complete data sets to make predictions accurately, yet actual data is usually incomplete. Enter compressive sensing (CS), a method that enables the recovery of missing or incomplete data using the premise that most signals can be sparsely represented. This method proves especially beneficial in epidemic modeling, as it enables epidemiologists to fill in gaps, alert to outbreaks sooner, and make more sound predictions with partial data.
 
-Compressive sensing (CS), also known as compressed sensing, sparse sampling, or compressive sampling, is a signal processing technique that enables the reconstruction of signals using far fewer samples than traditional methods require. The key insight of CS is that many real-world signals are naturally sparse or can be represented sparsely in an appropriate basis. This sparsity property allows for the recovery of the original signal from what appears to be insufficient information, provided that certain mathematical conditions are satisfied.
-
-The application of compressive sensing to disease spread modeling represents a promising intersection of signal processing, mathematical epidemiology, and big data analytics. This integration is particularly relevant in the context of emerging infectious diseases, where rapid decision-making based on limited data is often necessary. By leveraging CS techniques, epidemiologists can potentially:
-
-1. Reconstruct missing surveillance data to create more complete pictures of disease dynamics
-2. Identify key transmission patterns from partial observations
-3. Detect outbreaks earlier with fewer data points
-4. Make more reliable predictions about disease trajectories even with sparse data
-
-This project explores the theoretical foundations, methodological approaches, practical applications, and future directions of applying compressive sensing to disease spread modeling, with a special focus on COVID-19 as a case study. The report also addresses the big data aspects of this integration, discussing scalability, computational requirements, and real-time processing considerations essential for practical implementation.
+This project investigates how compressive sensing can be used to improve disease spread modeling, with a case study of COVID-19, and discusses the big data issues, such as scalability and real-time processing, for practical deployment.
 
 ---
 
@@ -565,8 +518,7 @@ plt.title("Recovered Case Matrix (LASSO)")
 plt.colorbar()
 plt.show()
 ```
-![dg](https://github.com/user-attachments/assets/eeb9bfca-9599-43eb-97d6-b4b9fb24e9a2)
-
+![dg](https://github.com/user-attachments/assets/be771f89-98ed-497a-bd91-5013e9d7821a)
 
 The effectiveness of CS approaches to epidemic modeling can be evaluated along several dimensions:
 
@@ -645,83 +597,15 @@ These limitations highlight the importance of using CS as part of a broader appr
 
 ---
 
-## 7. Future Directions
-
-
-### 7.1 Deep Learning-enhanced CS (Conceptual)
-
-```python
-# Using an autoencoder to learn sparse representations
-# Encoder compresses input epidemic signal to a latent (sparse) representation
-# Decoder reconstructs the full epidemic signal from the latent representation
-# Trained on historical epidemic curves
-```
-
-### 7.1 Advanced Recovery Algorithms
-
-The next generation of CS algorithms for epidemic modeling focuses on addressing current limitations:
-
-1. **Deep learning-enhanced CS**: Neural networks can learn optimal sampling patterns and reconstruction algorithms from historical epidemic data, potentially outperforming traditional CS methods.
-
-2. **Adaptive CS**: Recovery algorithms that adaptively adjust their parameters based on the characteristics of the incoming data, making them more robust to varying epidemic conditions.
-
-3. **Non-convex optimization approaches**: Moving beyond convex relaxations of the sparsity constraint to more directly address the original l₀-minimization problem through advanced optimization techniques.
-
-4. **Physics-informed CS**: Incorporating epidemiological knowledge directly into the recovery process by imposing constraints based on known disease dynamics.
-
-5. **Multi-resolution approaches**: CS methods that work across different spatial and temporal scales simultaneously, capturing both local details and global patterns.
-
-6. **Online and sequential CS**: Algorithms specifically designed for streaming data scenarios, efficiently updating reconstructions as new epidemic data arrives.
-
-These algorithmic advances promise to improve both the accuracy and computational efficiency of CS approaches to epidemic modeling.
-
-### 7.2 Multi-Modal Data Integration
-
-Future CS frameworks for epidemic modeling will increasingly leverage diverse data sources:
-
-1. **Genomic-epidemiological integration**: Combining genetic sequencing data with traditional case data using CS to track variant spread and emergence.
-
-2. **Digital surveillance integration**: Incorporating search trends, social media signals, and other digital traces as additional measurement channels within the CS framework.
-
-3. **Environmental monitoring**: Integrating wastewater surveillance, air sampling, and other environmental measurements with clinical data.
-
-4. **Mobility data fusion**: Combining cellular mobility data, transportation records, and location-based service data to inform contact patterns and transmission networks.
-
-5. **Symptom surveys and participatory surveillance**: Incorporating crowdsourced symptom reports as complementary measurements of disease activity.
-
-The challenge lies in developing appropriate mathematical frameworks to handle these heterogeneous data types within the CS paradigm, potentially through tensor-based approaches or multi-layered measurement models.
-
-### 7.3 Privacy-Preserving Disease Modeling
-
-As epidemic modeling increasingly leverages sensitive data sources, privacy-preserving CS approaches are gaining importance:
-
-1. **Differential privacy in CS**: Adding calibrated noise to measurements or recovered signals to provide formal privacy guarantees while maintaining utility for epidemic modeling.
-
-2. **Federated CS**: Performing CS recovery across multiple institutions without sharing raw data, using secure multi-party computation or other privacy-preserving protocols.
-
-3. **Homomorphic encryption**: Enabling CS computations to be performed directly on encrypted epidemic data without decryption.
-
-4. **Privacy-aware sampling**: Designing measurement matrices that inherently preserve privacy by avoiding the collection of individual-level data while still enabling reconstruction of population-level patterns.
-
-5. **Synthetic data generation**: Using CS reconstructions to generate realistic but non-identifiable synthetic epidemic data for open research and training.
-
-These approaches aim to balance the public health benefits of comprehensive epidemic modeling with the imperative to protect individual privacy, especially for vulnerable populations.
-
----
-
 ## 8. Conclusion
 
-The application of compressive sensing techniques to disease spread modeling represents a promising frontier at the intersection of signal processing, epidemiology, and big data analytics. By leveraging the inherent sparsity in epidemic patterns—whether in spatial distribution, transmission networks, or temporal evolution—CS provides a mathematical framework for extracting meaningful insights from incomplete surveillance data.
+Compressive sensing (CS) provides a potentially powerful means to enhance disease spreading modeling by giving meaning to partial data. CS leverages the inherent sparsity of epidemic information, such as transmission dynamics and disease spreading, to assist with filling gaps in data when limited.
 
-The COVID-19 pandemic highlighted both the urgent need for such methods and their potential impact. When testing capacity was limited and data collection systems strained, CS-based approaches offered ways to reconstruct more complete pictures of the pandemic's progression, potentially enabling earlier and more targeted interventions.
+In the COVID-19 pandemic, CS techniques enabled the development of more precise models despite issues such as limited testing and slow data accumulation, enabling interventions to be done earlier. CS also supports other big data approaches by processing sparse data while still yielding useful information.
 
-From a big data perspective, CS offers an elegant solution to a fundamental challenge in epidemic intelligence: how to manage the inherent sparsity of available data while still producing actionable insights. By focusing on the mathematical structure of this sparsity, CS complements other big data approaches that emphasize volume and velocity.
+Looking forward, integrating CS with higher-order computing and multiple sources of data could significantly enhance how we track and react to disease. Though there are obstacles to overcome, including ensuring the scalability and accuracy of CS techniques, the potential payoff for public health is dramatic.
 
-Looking forward, the integration of CS with advanced computing architectures, multi-modal data sources, and privacy-preserving frameworks promises to further enhance our ability to monitor and respond to infectious disease threats. These developments are not merely academic—they have direct implications for public health practice, potentially enabling more timely and effective responses to future outbreaks.
-
-However, realizing this potential requires addressing significant challenges, from theoretical questions about the applicability of CS assumptions to practical issues of computational scalability and validation. Success will depend on true interdisciplinary collaboration between mathematicians, computer scientists, epidemiologists, and public health practitioners.
-
-In conclusion, compressive sensing for disease spread modeling represents not just an interesting mathematical application but a potentially transformative approach to a critical public health challenge. As both sensing technologies and computational capabilities continue to evolve, CS may become an increasingly central component of our epidemic preparedness and response infrastructure.
+In summary, compressive sensing has the potential to become a central tool in disease modeling, and assist us in responding better to future pandemics.
 
 ---
 
